@@ -1,0 +1,235 @@
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;1,400&family=Lato:wght@300;400;700&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: "General Sans";
+  src: url("/assets/fonts/GeneralSans.woff2") format("woff2");
+  font-weight: 200 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+html {
+  scroll-behavior: smooth;
+  color-scheme: dark;
+}
+
+@layer base {
+  :root {
+    --radius: 0.75rem;
+    --background: 0.12 0.02 40;
+    --foreground: 0.93 0.025 75;
+    --card: 0.16 0.022 42;
+    --card-foreground: 0.93 0.025 75;
+    --popover: 0.18 0.022 42;
+    --popover-foreground: 0.93 0.025 75;
+    --primary: 0.73 0.13 68;
+    --primary-foreground: 0.1 0.015 40;
+    --secondary: 0.2 0.02 42;
+    --secondary-foreground: 0.93 0.025 75;
+    --muted: 0.2 0.02 42;
+    --muted-foreground: 0.58 0.03 60;
+    --accent: 0.73 0.13 68;
+    --accent-foreground: 0.1 0.015 40;
+    --destructive: 0.577 0.245 27.325;
+    --destructive-foreground: 0.985 0 0;
+    --border: 0.25 0.025 48;
+    --input: 0.25 0.025 48;
+    --ring: 0.73 0.13 68;
+    --chart-1: 0.73 0.13 68;
+    --chart-2: 0.62 0.09 52;
+    --chart-3: 0.52 0.06 42;
+    --chart-4: 0.828 0.189 84.429;
+    --chart-5: 0.769 0.188 70.08;
+    --sidebar: 0.14 0.022 42;
+    --sidebar-foreground: 0.93 0.025 75;
+    --sidebar-primary: 0.73 0.13 68;
+    --sidebar-primary-foreground: 0.1 0.015 40;
+    --sidebar-accent: 0.2 0.02 42;
+    --sidebar-accent-foreground: 0.93 0.025 75;
+    --sidebar-border: 0.25 0.025 48;
+    --sidebar-ring: 0.73 0.13 68;
+    --cafe-gold: 0.73 0.13 68;
+    --cafe-gold-light: 0.82 0.14 72;
+    --cafe-bg: 0.12 0.02 40;
+    --cafe-panel: 0.16 0.022 42;
+    --cafe-card: 0.19 0.025 44;
+    --cafe-text: 0.93 0.025 75;
+    --cafe-muted: 0.58 0.03 60;
+    --cafe-border: 0.25 0.025 48;
+    --cafe-cream: 0.95 0.03 80;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: "Lato", "General Sans", system-ui, sans-serif;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5 {
+    font-family: "Playfair Display", Georgia, serif;
+  }
+}
+
+.font-serif {
+  font-family: "Playfair Display", Georgia, serif;
+}
+
+.font-body {
+  font-family: "Lato", "General Sans", system-ui, sans-serif;
+}
+
+.text-gold {
+  color: oklch(var(--cafe-gold));
+}
+
+.bg-gold {
+  background-color: oklch(var(--cafe-gold));
+}
+
+.border-gold {
+  border-color: oklch(var(--cafe-gold));
+}
+
+.section-fade {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.section-fade.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.nav-link {
+  position: relative;
+  transition: color 0.2s ease;
+}
+
+.nav-link::after {
+  content: "";
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: oklch(var(--cafe-gold));
+  transition: width 0.3s ease;
+}
+
+.nav-link:hover::after {
+  width: 100%;
+}
+
+.menu-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.menu-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.4);
+}
+
+.gallery-item {
+  transition: transform 0.3s ease, filter 0.3s ease;
+  overflow: hidden;
+}
+
+.gallery-item:hover img {
+  transform: scale(1.08);
+}
+
+.gallery-item img {
+  transition: transform 0.4s ease;
+}
+
+.btn-gold {
+  background-color: oklch(var(--cafe-gold));
+  color: oklch(0.1 0.015 40);
+  font-family: "Lato", sans-serif;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.btn-gold:hover {
+  background-color: oklch(var(--cafe-gold-light));
+  transform: translateY(-1px);
+}
+
+.btn-outline-gold {
+  background-color: transparent;
+  border: 2px solid oklch(var(--cafe-gold));
+  color: oklch(var(--cafe-gold));
+  font-family: "Lato", sans-serif;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  transition: background-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
+}
+
+.btn-outline-gold:hover {
+  background-color: oklch(var(--cafe-gold));
+  color: oklch(0.1 0.015 40);
+  transform: translateY(-1px);
+}
+
+.review-card {
+  transition: transform 0.3s ease;
+}
+
+.review-card:hover {
+  transform: translateY(-4px);
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+  filter: invert(0.7) sepia(1) saturate(2) hue-rotate(5deg);
+  cursor: pointer;
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+.float-btn {
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% center;
+  }
+  100% {
+    background-position: 200% center;
+  }
+}
+
+.shimmer-text {
+  background: linear-gradient(
+    90deg,
+    oklch(var(--cafe-gold)) 0%,
+    oklch(var(--cafe-gold-light)) 40%,
+    oklch(var(--cafe-gold)) 80%
+  );
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: shimmer 3s linear infinite;
+}
